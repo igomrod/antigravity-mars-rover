@@ -175,13 +175,6 @@ Each user story includes:
 | `l` | Turn left |
 | `r` | Turn right |
 
-## 🧹 Maintenance
-
-### Clean build artifacts
-```bash
-./gradlew clean
-```
-
 ### Update Gradle wrapper
 ```bash
 ./gradlew wrapper --gradle-version=8.5
