@@ -108,6 +108,25 @@ After running tests, open the HTML report:
 open build/reports/tests/test/index.html
 ```
 
+### Run mutation tests (PITest)
+Mutation testing verifies the quality of your tests by introducing small changes (mutations) to your code and checking if tests catch them:
+
+```bash
+./gradlew pitest
+```
+
+**Current Mutation Score: 85%** (60/71 mutations killed)
+
+View the mutation testing report:
+```bash
+open build/reports/pitest/index.html
+```
+
+**What mutation testing tells us:**
+- **85% mutation score**: 60 out of 71 code mutations were caught by tests
+- **96% line coverage**: Nearly all code is executed by tests
+- **88% test strength**: Tests are effective at detecting changes
+
 ## 📊 Test Coverage
 
 **Total: 28 tests** across 5 test suites:

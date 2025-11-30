@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version "1.9.20"
     kotlin("plugin.spring") version "1.9.20"
+    id("info.solidsoft.pitest") version "1.15.0"
 }
 
 group = "com.example"
@@ -61,4 +62,20 @@ tasks.withType<Test> {
             }
         }))
     }
+}
+
+pitest {
+    junit5PluginVersion = "1.2.1"
+    targetClasses = listOf("com.example.marsrover.*")
+    targetTests = listOf("com.example.marsrover.*")
+    excludedClasses = listOf(
+        "com.example.marsrover.MarsRoverApplicationKt",
+        "com.example.marsrover.infrastructure.adapters.*Request",
+        "com.example.marsrover.infrastructure.adapters.*Response"
+    )
+    threads = 4
+    outputFormats = listOf("HTML", "XML")
+    timestampedReports = false
+    mutators = listOf("STRONGER")
+    verbose = true
 }
