@@ -1,7 +1,22 @@
+# Gradle
 .gradle
 build/
+bin/
 out/
+
+# IDE
 .idea/
 *.iml
+*.ipr
+*.iws
+
+# OS
 .DS_Store
+
+# Temporary files
 mars-rover.zip
+mkdir/
+-p/
+
+# Test reports
+*.log
