@@ -13,6 +13,10 @@ class InMemoryGridRepository : GridRepositoryPort {
         obstacles.add(position)
     }
     
+    fun clearObstacles() {
+        obstacles.clear()
+    }
+    
     override fun hasObstacle(position: Position): Boolean {
         return obstacles.contains(position)
     }
