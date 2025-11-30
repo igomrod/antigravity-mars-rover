@@ -56,6 +56,31 @@ src/
 ./gradlew test
 ```
 
+**Note**: If tests show as "UP-TO-DATE" (cached), you won't see individual test output. To see all tests execute:
+
+### Force test execution and see detailed output
+```bash
+./gradlew clean test
+# or
+./gradlew test --rerun-tasks
+```
+
+You'll see output like:
+```
+RoverInitializationTest > should initialize rover at position 0,0 facing North() PASSED
+RoverMovementTest > should move forward North() PASSED
+RoverTurningTest > should turn left from North() PASSED
+...
+========================================
+Test Results
+========================================
+Tests run: 31
+Passed: 31
+Failed: 0
+Skipped: 0
+========================================
+```
+
 ### Run tests with detailed output
 ```bash
 ./gradlew test --info
