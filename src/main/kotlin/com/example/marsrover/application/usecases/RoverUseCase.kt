@@ -19,7 +19,10 @@ class RoverUseCase(private val gridRepository: GridRepositoryPort) : RoverComman
     }
 
     override fun execute(commands: String): Rover {
-        // To be implemented in US-2
-        return rover ?: throw IllegalStateException("Rover not initialized")
+        if (rover == null) {
+            throw IllegalStateException("Rover not initialized")
+        }
+        rover = rover!!.move(commands)
+        return rover!!
     }
 }
