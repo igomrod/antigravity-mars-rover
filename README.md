@@ -32,8 +32,9 @@ src/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **Java 17** or higher
+- **Java 21** (LTS) or higher
 - **Gradle** (wrapper included)
+- **SDKMAN** (recommended for Java version management)
 
 ### Installation
 
@@ -43,10 +44,20 @@ src/
    cd mars-anitgravity-rover
    ```
 
-2. **Verify Java installation**
+2. **Install Java 21 using SDKMAN** (recommended)
+   ```bash
+   # Install SDKMAN if not already installed
+   curl -s "https://get.sdkman.io" | bash
+   source "$HOME/.sdkman/bin/sdkman-init.sh"
+   
+   # Install Java 21
+   sdk install java 21-tem
+   ```
+
+3. **Verify Java installation**
    ```bash
    java -version
-   # Should show Java 17 or higher
+   # Should show Java 21 or higher
    ```
 
 ## 🧪 Running Tests
