@@ -10,75 +10,76 @@ import org.junit.jupiter.api.Test
 class RoverMovementTest {
 
     private val grid = Grid(10, 10)
+    private val noObstacles: (Position) -> Boolean = { false }
 
     @Test
     fun `should move forward North`() {
         val rover = Rover(Position(0, 0), Direction.NORTH)
-        val updatedRover = rover.move("f", grid)
-        assertEquals(Position(0, 1), updatedRover.position)
-        assertEquals(Direction.NORTH, updatedRover.direction)
+        val result = rover.move("f", grid, noObstacles)
+        assertEquals(Position(0, 1), result.rover.position)
+        assertEquals(Direction.NORTH, result.rover.direction)
     }
 
     @Test
     fun `should move backward North`() {
         val rover = Rover(Position(0, 1), Direction.NORTH)
-        val updatedRover = rover.move("b", grid)
-        assertEquals(Position(0, 0), updatedRover.position)
-        assertEquals(Direction.NORTH, updatedRover.direction)
+        val result = rover.move("b", grid, noObstacles)
+        assertEquals(Position(0, 0), result.rover.position)
+        assertEquals(Direction.NORTH, result.rover.direction)
     }
 
     @Test
     fun `should move forward East`() {
         val rover = Rover(Position(0, 0), Direction.EAST)
-        val updatedRover = rover.move("f", grid)
-        assertEquals(Position(1, 0), updatedRover.position)
-        assertEquals(Direction.EAST, updatedRover.direction)
+        val result = rover.move("f", grid, noObstacles)
+        assertEquals(Position(1, 0), result.rover.position)
+        assertEquals(Direction.EAST, result.rover.direction)
     }
 
     @Test
     fun `should move backward East`() {
         val rover = Rover(Position(1, 0), Direction.EAST)
-        val updatedRover = rover.move("b", grid)
-        assertEquals(Position(0, 0), updatedRover.position)
-        assertEquals(Direction.EAST, updatedRover.direction)
+        val result = rover.move("b", grid, noObstacles)
+        assertEquals(Position(0, 0), result.rover.position)
+        assertEquals(Direction.EAST, result.rover.direction)
     }
     
     @Test
     fun `should move forward South`() {
         val rover = Rover(Position(0, 1), Direction.SOUTH)
-        val updatedRover = rover.move("f", grid)
-        assertEquals(Position(0, 0), updatedRover.position)
-        assertEquals(Direction.SOUTH, updatedRover.direction)
+        val result = rover.move("f", grid, noObstacles)
+        assertEquals(Position(0, 0), result.rover.position)
+        assertEquals(Direction.SOUTH, result.rover.direction)
     }
 
     @Test
     fun `should move backward South`() {
         val rover = Rover(Position(0, 0), Direction.SOUTH)
-        val updatedRover = rover.move("b", grid)
-        assertEquals(Position(0, 1), updatedRover.position)
-        assertEquals(Direction.SOUTH, updatedRover.direction)
+        val result = rover.move("b", grid, noObstacles)
+        assertEquals(Position(0, 1), result.rover.position)
+        assertEquals(Direction.SOUTH, result.rover.direction)
     }
 
     @Test
     fun `should move forward West`() {
         val rover = Rover(Position(1, 0), Direction.WEST)
-        val updatedRover = rover.move("f", grid)
-        assertEquals(Position(0, 0), updatedRover.position)
-        assertEquals(Direction.WEST, updatedRover.direction)
+        val result = rover.move("f", grid, noObstacles)
+        assertEquals(Position(0, 0), result.rover.position)
+        assertEquals(Direction.WEST, result.rover.direction)
     }
 
     @Test
     fun `should move backward West`() {
         val rover = Rover(Position(0, 0), Direction.WEST)
-        val updatedRover = rover.move("b", grid)
-        assertEquals(Position(1, 0), updatedRover.position)
-        assertEquals(Direction.WEST, updatedRover.direction)
+        val result = rover.move("b", grid, noObstacles)
+        assertEquals(Position(1, 0), result.rover.position)
+        assertEquals(Direction.WEST, result.rover.direction)
     }
 
     @Test
     fun `should execute multiple commands`() {
         val rover = Rover(Position(0, 0), Direction.NORTH)
-        val updatedRover = rover.move("ff", grid)
-        assertEquals(Position(0, 2), updatedRover.position)
+        val result = rover.move("ff", grid, noObstacles)
+        assertEquals(Position(0, 2), result.rover.position)
     }
 }

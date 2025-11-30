@@ -6,8 +6,15 @@ import org.springframework.stereotype.Component
 
 @Component
 class InMemoryGridRepository : GridRepositoryPort {
+    
+    private val obstacles = mutableSetOf<Position>()
+    
+    fun addObstacle(position: Position) {
+        obstacles.add(position)
+    }
+    
     override fun hasObstacle(position: Position): Boolean {
-        return false // No obstacles for now
+        return obstacles.contains(position)
     }
 
     override fun getGridSize(): Pair<Int, Int> {

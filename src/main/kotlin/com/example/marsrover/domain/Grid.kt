@@ -27,4 +27,8 @@ data class Grid(val width: Int, val height: Int) {
 
         return Pair(Position(newX, newY), newDirection)
     }
+
+    fun hasObstacle(position: Position, obstacleChecker: (Position) -> Boolean): Boolean {
+        return obstacleChecker(position)
+    }
 }
