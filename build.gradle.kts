@@ -35,4 +35,30 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    
+    // Show detailed test output
+    testLogging {
+        events("passed", "skipped", "failed", "standardOut", "standardError")
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+        
+        // Show individual test results
+        showStandardStreams = false
+        
+        // Display test results after each test
+        afterSuite(KotlinClosure2({ desc: TestDescriptor, result: TestResult ->
+            if (desc.parent == null) { // Only print for the overall test suite
+                println("\n========================================")
+                println("Test Results")
+                println("========================================")
+                println("Tests run: ${result.testCount}")
+                println("Passed: ${result.successfulTestCount}")
+                println("Failed: ${result.failedTestCount}")
+                println("Skipped: ${result.skippedTestCount}")
+                println("========================================\n")
+            }
+        }))
+    }
 }
